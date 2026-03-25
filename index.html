@@ -11,7 +11,6 @@
 </head>
 <body>
 
-<!-- ═══════ NAV ═══════ -->
 <nav id="nav">
     <div class="nav-inner">
         <div class="nav-logo" onclick="showView('home')">
@@ -25,7 +24,7 @@
     </div>
 </nav>
 
-<!-- ═══════ HOME VIEW ═══════ -->
+
 <div id="view-home" class="view active">
     <section class="hero">
         <div class="hero-bg">
@@ -52,7 +51,6 @@
     <div id="results" class="results-container"></div>
 </div>
 
-<!-- ═══════ LINKS VIEW ═══════ -->
 <div id="view-links" class="view">
     <div class="links-view-inner">
         <div class="links-hero">
@@ -65,7 +63,6 @@
 
         <div id="linkCategories" class="link-categories">
 
-            <!-- BROWSERS -->
             <div class="link-category" data-category="browsers">
                 <div class="lcat-header" onclick="toggleCategory(this)">
                     <span class="lcat-icon">🌐</span>
@@ -94,13 +91,16 @@
                         <a href="https://www.thunderbird.net/en-US/thunderbird/releases/" target="_blank" class="link-pill">Release Notes</a>
                     </div>
                     <div class="vendor-card">
+                        <h4>Opera</h4>
+                        <a href="https://blogs.opera.com/desktop/?s=stable" target="_blank" class="link-pill">Opera Stable Release Notes</a>
+                    </div>
+                    <div class="vendor-card">
                         <h4>Brave</h4>
                         <a href="https://brave.com/latest/" target="_blank" class="link-pill">Release Notes</a>
                     </div>
                 </div>
             </div>
 
-            <!-- OPERATING SYSTEMS -->
             <div class="link-category" data-category="operating-systems">
                 <div class="lcat-header" onclick="toggleCategory(this)">
                     <span class="lcat-icon">💻</span>
@@ -113,46 +113,147 @@
                         <a href="https://learn.microsoft.com/en-gb/lifecycle/products/windows-10-home-and-pro" target="_blank" class="link-pill">Home & Pro Lifecycle</a>
                         <a href="https://learn.microsoft.com/en-gb/lifecycle/products/windows-10-enterprise-and-education" target="_blank" class="link-pill">Enterprise Lifecycle</a>
                         <a href="https://learn.microsoft.com/en-gb/windows/whats-new/extended-security-updates" target="_blank" class="link-pill">Extended Security Updates</a>
+                        <a href="https://learn.microsoft.com/en-us/windows/release-health/status-windows-10-21h2" target="_blank" class="link-pill">Windows 10 Enterprise LTSC 2021</a>
                     </div>
                     <div class="vendor-card">
                         <h4>Windows 11</h4>
                         <a href="https://learn.microsoft.com/en-us/windows/release-health/windows11-release-information" target="_blank" class="link-pill">Release Information</a>
-                        <a href="https://ce-knowledge-hub.iasme.co.uk/space/CEKH/2643689659/Windows+11" target="_blank" class="link-pill">IASME Knowledge Hub</a>
                     </div>
                     <div class="vendor-card">
                         <h4>Windows Server</h4>
-                        <a href="https://learn.microsoft.com/en-us/windows/release-health/windows-server-release-info" target="_blank" class="link-pill">Release Information</a>
+                        <a href="https://learn.microsoft.com/en-us/windows/release-health/windows-server-release-info" target="_blank" class="link-pill">Windows ServerRelease Information</a>
                         <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2016" target="_blank" class="link-pill">Server 2016 Lifecycle</a>
+                        <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2019" target="_blank" class="link-pill">Server 2019 Lifecycle</a>
                         <a href="https://learn.microsoft.com/en-us/windows-server/get-started/extended-security-updates-overview" target="_blank" class="link-pill">ESU Overview</a>
-                        <a href="https://ce-knowledge-hub.iasme.co.uk/space/CEKH/2643591499/Windows+Server" target="_blank" class="link-pill">IASME Knowledge Hub</a>
                     </div>
                     <div class="vendor-card">
                         <h4>macOS</h4>
-                        <a href="https://en.wikipedia.org/wiki/MacOS_Tahoe#Release_history" target="_blank" class="link-pill">Tahoe</a>
-                        <a href="https://en.wikipedia.org/wiki/MacOS_Sequoia#Release_history" target="_blank" class="link-pill">Sequoia</a>
-                        <a href="https://en.wikipedia.org/wiki/MacOS_Sonoma#Release_history" target="_blank" class="link-pill">Sonoma</a>
-                        <a href="https://en.wikipedia.org/wiki/MacOS_Ventura#Release_history" target="_blank" class="link-pill">Ventura</a>
+                        <a href="https://en.wikipedia.org/wiki/MacOS_Tahoe#Release_history" target="_blank" class="link-pill">Tahoe Version History</a>
+                        <a href="https://en.wikipedia.org/wiki/MacOS_Sequoia#Release_history" target="_blank" class="link-pill">Sequoia Version History</a>
+                        <a href="https://en.wikipedia.org/wiki/MacOS_Sonoma#Release_history" target="_blank" class="link-pill">Sonoma Version History</a>
+                        <a href="https://en.wikipedia.org/wiki/MacOS_Ventura#Release_history" target="_blank" class="link-pill">Ventura Version History</a>
+                        <a href="https://support.apple.com/en-us/122867" target="_blank" class="link-pill">Tahoe Compatibility</a>
+                        <a href="https://support.apple.com/en-gb/120282" target="_blank" class="link-pill">Sequoia Compatibility</a>
+                        <a href="https://support.apple.com/en-gb/105113" target="_blank" class="link-pill">Sonoma Compatibility</a>
+                        
                     </div>
                     <div class="vendor-card">
                         <h4>iOS</h4>
-                        <a href="https://en.wikipedia.org/wiki/IOS_26#Version_history" target="_blank" class="link-pill">iOS 26</a>
-                        <a href="https://en.wikipedia.org/wiki/IOS_18#Version_history" target="_blank" class="link-pill">iOS 18</a>
-                        <a href="https://en.wikipedia.org/wiki/IOS_16#Version_history" target="_blank" class="link-pill">iOS 16</a>
+                        <a href="https://en.wikipedia.org/wiki/IOS_26#Version_history" target="_blank" class="link-pill">iOS 26 Version History</a>
+                        <a href="https://en.wikipedia.org/wiki/IOS_18#Version_history" target="_blank" class="link-pill">iOS 18 Version History</a>
+                        <a href="https://en.wikipedia.org/wiki/IOS_16#Version_history" target="_blank" class="link-pill">iOS 16 Version History</a>
+                        <a href="https://developer.apple.com/documentation/ios-ipados-release-notes" target="_blank" class="link-pill">iOS and iPadOS Security Updates</a>
                     </div>
                     <div class="vendor-card">
                         <h4>iPadOS</h4>
-                        <a href="https://en.wikipedia.org/wiki/IPadOS_26#Version_history" target="_blank" class="link-pill">iPadOS 26</a>
-                        <a href="https://en.wikipedia.org/wiki/IPadOS_18#Version_history" target="_blank" class="link-pill">iPadOS 18</a>
-                        <a href="https://en.wikipedia.org/wiki/IPadOS_17#Version_history" target="_blank" class="link-pill">iPadOS 17</a>
+                        <a href="https://developer.apple.com/documentation/ios-ipados-release-notes" target="_blank" class="link-pill">iOS and iPadOS Security Updates</a>
+                        <a href="https://en.wikipedia.org/wiki/IPadOS_26#Version_history" target="_blank" class="link-pill">iPadOS 26 Version History</a>
+                        <a href="https://en.wikipedia.org/wiki/IPadOS_18#Version_history" target="_blank" class="link-pill">iPadOS 18 Version History</a>
+                        <a href="https://en.wikipedia.org/wiki/IPadOS_17#Version_history" target="_blank" class="link-pill">iPadOS 17 Version History</a>
+                        <a href="https://support.apple.com/en-gb/guide/ipad/ipad213a25b2/ipados" target="_blank" class="link-pill">iPadOS 26 Compatibility</a>
+                        <a href="https://support.apple.com/en-gb/guide/iphone/iphe3fa5df43/18.0/ios/18.0" target="_blank" class="link-pill">iPadOS 18 Compatibility</a>
+                        
+                    </div>
+                    <div class="vendor-card">
+                        <h4>Android</h4>
+                        <a href="https://source.android.com/docs/security/bulletin" target="_blank" class="link-pill">Android Security and Update Bulletins</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>Ubuntu</h4>
+                        <a href="https://ubuntu.com/about/release-cycle" target="_blank" class="link-pill">Ubuntu Release Cycle</a>
                     </div>
                     <div class="vendor-card">
                         <h4>ChromeOS</h4>
                         <a href="https://support.google.com/chrome/a/answer/10314655" target="_blank" class="link-pill">Updates & Support</a>
                     </div>
+                    <div class="vendor-card">
+                        <h4>CentOS</h4>
+                        <a href="https://www.centos.org/centos10/" target="_blank" class="link-pill">CentOS Stream 10 Release Notes</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>Amazon Fire OS</h4>
+                        <a href="https://developer.amazon.com/docs/fire-tv/fire-os-overview.html" target="_blank" class="link-pill">Fire OS Versions</a>
+                    </div>
                 </div>
             </div>
 
-            <!-- BUSINESS AV -->
+            <div class="link-category" data-category="operating-systems">
+                <div class="lcat-header" onclick="toggleCategory(this)">
+                    <span class="lcat-icon">💻</span>
+                    <span>Hypervisors</span>
+                    <span class="lcat-chevron">▾</span>
+                </div>
+                <div class="lcat-body">
+                    <div class="vendor-card">
+                        <h4>Microsoft Hyper-V Server</h4>
+                        <a href="https://docs.microsoft.com/en-gb/lifecycle/products/?terms=hyper" target="_blank" class="link-pill">Microsoft Hyper-V Lifecycle</a>
+                        <a href="https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows" target="_blank" class="link-pill">Supported Windows guest operating systems for Hyper-V on Windows Server</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>VirtualBox</h4>
+                        <a href="https://www.virtualbox.org/wiki/Changelog" target="_blank" class="link-pill">VirtualBox Changelog</a>
+                        <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" class="link-pill">VirtualBox Downloads</a>
+                        <a href="https://www.virtualbox.org/wiki/Download_Old_Builds" target="_blank" class="link-pill">VirtualBox Old Builds EOL</a>
+                        <a href="https://www.virtualbox.org/manual/UserManual.html#guestossupport" target="_blank" class="link-pill">VirtualBox Supported Guest OS</a>
+                        <a href="https://www.virtualbox.org/manual/UserManual.html#hostossupport" target="_blank" class="link-pill">VirtualBox Supported Host OS</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>Xen Project Hypervisor</h4>
+                        <a href="https://wiki.xenproject.org/wiki/Category:Release_Notes" target="_blank" class="link-pill">Xen Project Release Notes</a>
+                        <a href="https://xenbits.xen.org/docs/unstable/support-matrix.html" target="_blank" class="link-pill">Xen Version Support Matrix</a>
+                        <a href="https://xenbits.xen.org/gitweb/?p=xen.git;a=tags" target="_blank" class="link-pill">Xen Patch Release Notes</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>Proxmox Hypervisor</h4>
+                        <a href="https://pve.proxmox.com/wiki/Roadmap" target="_blank" class="link-pill">Proxmox Roadmap</a>
+                        <a href="https://www.proxmox.com/" target="_blank" class="link-pill">Proxmox Home Page</a>
+                        <a href="https://forum.proxmox.com/forums/announcements.7/" target="_blank" class="link-pill">Proxmox Release Announcements</a>
+                        <a href="https://pve.proxmox.com/wiki/Main_Page" target="_blank" class="link-pill">Proxmox Wiki</a>
+                        <a href="https://forum.proxmox.com/threads/proxmox-ve-support-lifecycle.35755/" target="_blank" class="link-pill">Proxmox VE – Support Lifecycle</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="link-category" data-category="aws">
+                <div class="lcat-header" onclick="toggleCategory(this)">
+                    <span class="lcat-icon">📦</span>
+                    <span>Knowledge Hub IASME Cyber Essentials</span>
+                    <span class="lcat-chevron">▾</span>
+                </div>
+                <div class="lcat-body">
+                    <div class="vendor-card">
+                        <h4>Knowledge Hub - Not Compliant with CE</h4>
+                        <a href="https://ce-knowledge-hub.iasme.co.uk/space/CEKH/2576842966/Security+Update+Management+:+FAQ" target="_blank" class="link-pill">Beta / Preview Versions not compliant</a>
+                        <a href="https://ce-knowledge-hub.iasme.co.uk/space/CEKH/2576842897/Secure+Configuration+-+FAQ" target="_blank" class="link-pill">Kali Linux not compliant</a>
+                        <a href="https://ce-knowledge-hub.iasme.co.uk/space/CEKH/2644607074/Firewalls+:+FAQ" target="_blank" class="link-pill">Commercial VPN's are not compliant</a>
+                        <a href="https://ce-knowledge-hub.iasme.co.uk/space/CEKH/2576842897/Secure+Configuration+-+FAQ" target="_blank" class="link-pill">Trusted IP or conditional access by IP is not compliant</a>
+                        <a href="https://ce-knowledge-hub.iasme.co.uk/space/CEKH/2660663323/User+Access+-+Just+Enough+or+Just+in+Time%3F" target="_blank" class="link-pill">JIT / Just in time is not compliant</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>Knowledge Hub - Scoping</h4>
+                        <a href="https://ce-knowledge-hub.iasme.co.uk/space/CEKH/4185489519/Entities+sharing+a+Cyber+Essentials+Certification" target="_blank" class="link-pill">Entities sharing a Cyber Essentials Certification</a>
+                        <a href="https://ce-knowledge-hub.iasme.co.uk/space/CEKH/2751561800/The+Cyber+Essentials+guide+to+working+with+contractors" target="_blank" class="link-pill">Working with Contractors</a>
+                        <a href="https://ce-knowledge-hub.iasme.co.uk/space/CEKH/2708766742/Subset+Scoping+Guidance" target="_blank" class="link-pill">Network Segregation / Subset / Legacy Network Isolated</a>
+                        <a href="https://ce-knowledge-hub.iasme.co.uk/space/CEKH/2644607074/Firewalls+:+FAQ" target="_blank" class="link-pill">Home Routers are not in scope</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>Knowledge Hub - IASME</h4>
+                        <a href="https://iasme.co.uk/cyber-essentials/terms-and-conditions/" target="_blank" class="link-pill">Terms and Conditions</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>Knowledge Hub - Blockmark</h4>
+                        <a href="https://iasme.co.uk/articles/blockmark-registry-certificates-a-users-guide/" target="_blank" class="link-pill">BlockMark Registry Certificates</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>Knowledge Hub - Cloud Service MFA Directory</h4>
+                        <a href="https://ce-knowledge-hub.iasme.co.uk/space/CEKH/4189913427/Cloud+Service+MFA+A-C" target="_blank" class="link-pill">Cloud Services A-C</a>
+                        <a href="https://ce-knowledge-hub.iasme.co.uk/space/CEKH/4189356470/Cloud+Service+MFA+D-L" target="_blank" class="link-pill">Cloud Services D-L</a>
+                        <a href="https://ce-knowledge-hub.iasme.co.uk/space/CEKH/4190142614/Cloud+Service+MFA+M-R" target="_blank" class="link-pill">Cloud Services M-R</a> 
+                        <a href="https://ce-knowledge-hub.iasme.co.uk/space/CEKH/4190142621/Cloud+Service+MFA+S-Z" target="_blank" class="link-pill">Cloud Services S-Z</a> 
+                    </div>
+                </div>
+            </div>
+
             <div class="link-category" data-category="business-av">
                 <div class="lcat-header" onclick="toggleCategory(this)">
                     <span class="lcat-icon">🛡</span>
@@ -208,11 +309,10 @@
                 </div>
             </div>
 
-            <!-- FIREWALLS -->
             <div class="link-category" data-category="firewalls">
                 <div class="lcat-header" onclick="toggleCategory(this)">
                     <span class="lcat-icon">🔥</span>
-                    <span>Firewalls</span>
+                    <span>Firewalls / Routers</span>
                     <span class="lcat-chevron">▾</span>
                 </div>
                 <div class="lcat-body">
@@ -221,13 +321,23 @@
                         <a href="https://campus.barracuda.com/product/cloudgenfirewall/doc/71860841/barracuda-nextgen-and-cloudgen-firewall-appliances-eos-eol-definitions" target="_blank" class="link-pill">EOS/EOL Definitions</a>
                     </div>
                     <div class="vendor-card">
+                        <h4>Sky</h4>
+                        <a href="https://www.sky.com/help/articles/automatic-software-updates-for-sky-routers" target="_blank" class="link-pill">Sky Hub Latest Software Versions</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>pfSense</h4>
+                        <a href="https://docs.netgate.com/pfsense/en/latest/releases/versions.html" target="_blank" class="link-pill">Release Notes</a>
+                    </div>
+                    <div class="vendor-card">
                         <h4>Unifi / Ubiquiti</h4>
                         <a href="https://help.ui.com/hc/en-us/articles/1500001268521-Ubiquiti-s-Vintage-and-Legacy-Products" target="_blank" class="link-pill">Vintage & Legacy</a>
                         <a href="https://www.clouduni.fi/blog/cloudkey-gen1-officially-end-of-life" target="_blank" class="link-pill">CloudKey Gen1 EOL</a>
+                        <a href="https://ui.com/download/software/" target="_blank" class="link-pill">UniFi Firmware</a>
                     </div>
                     <div class="vendor-card">
                         <h4>Synology</h4>
                         <a href="https://www.synology.com/en-uk/releaseNote/DSM?model=DS1817%2B" target="_blank" class="link-pill">DSM Release Notes</a>
+                        <a href="https://www.synology.com/en-au/products/status?model=RS4021xs%2B" target="_blank" class="link-pill">Search Product Support</a>
                     </div>
                     <div class="vendor-card">
                         <h4>DrayTek</h4>
@@ -302,26 +412,80 @@
                 </div>
             </div>
 
-            <!-- AWS -->
             <div class="link-category" data-category="aws">
                 <div class="lcat-header" onclick="toggleCategory(this)">
                     <span class="lcat-icon">☁️</span>
-                    <span>AWS Linux</span>
+                    <span>Linux</span>
                     <span class="lcat-chevron">▾</span>
                 </div>
                 <div class="lcat-body">
                     <div class="vendor-card">
-                        <h4>Amazon Linux 2</h4>
-                        <a href="https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-al2.html" target="_blank" class="link-pill">Release Notes</a>
+                        <h4>Amazon Linux</h4>
+                        <a href="https://aws.amazon.com/linux/amazon-linux-2022" target="_blank" class="link-pill">Amazon Linux 2023 Overview</a>
+                        <a href="https://docs.aws.amazon.com/linux/al2022/ug/release-cadence.html" target="_blank" class="link-pill">Amazon Linux Release Cadence</a>
+                        <a href="https://aws.amazon.com/amazon-linux-2" target="_blank" class="link-pill">Amazon Linux 2 Overview</a>
+                        <a href="https://aws.amazon.com/amazon-linux-2/faqs/" target="_blank" class="link-pill">Amazon Linux 2 FAQs</a>
+                        <a href="https://aws.amazon.com/amazon-linux-ami/" target="_blank" class="link-pill">Amazon Linux 1 Overview</a>
                     </div>
                     <div class="vendor-card">
-                        <h4>Amazon Linux 2023</h4>
-                        <a href="https://docs.aws.amazon.com/linux/al2023/release-notes/relnotes.html" target="_blank" class="link-pill">Release Notes</a>
+                        <h4>Debian Linux</h4>
+                        <a href="https://wiki.debian.org/DebianReleases" target="_blank" class="link-pill">Debian Releases</a>
+                        <a href="https://www.debian.org/lts/security/" target="_blank" class="link-pill">Debian LTS Security</a>
+                        <a href="https://wiki.debian.org/LTS/Using" target="_blank" class="link-pill">Using Debian LTS</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>Fedora</h4>
+                        <a href="https://fedoraproject.org/wiki/Fedora_Release_Life_Cycle" target="_blank" class="link-pill">Fedora LifeCycle</a>
+                        <a href="https://www.fedoraproject.org/coreos/download?stream=stable" target="_blank" class="link-pill">Fedora CoreOS</a>
+                        <a href="https://fedorapeople.org/groups/schedule/" target="_blank" class="link-pill">Fedora Schedule</a>
+                        <a href="https://fedoraproject.org/wiki/End_of_life" target="_blank" class="link-pill">Fedora Unsupported Release</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>FreeBSD</h4>
+                        <a href="https://www.freebsd.org/security/#sup" target="_blank" class="link-pill">FreeBSD Security Information</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>Linux Mint</h4>
+                        <a href="https://linuxmint.com/download_all.php" target="_blank" class="link-pill">Linux Mint Releases</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>NetBSD</h4>
+                        <a href="https://www.netbsd.org/releases/formal.html" target="_blank" class="link-pill">NetBSD Formal Releases</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>openSUSE</h4>
+                        <a href="https://en.opensuse.org/Lifetime" target="_blank" class="link-pill">Lifetime - openSUSE Wiki</a>
+                        <a href="https://en.opensuse.org/openSUSE:Roadmap" target="_blank" class="link-pill">openSUSE:Roadmap - openSUSE Wiki</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>Oracle Linux</h4>
+                        <a href="https://www.oracle.com/a/ocom/docs/elsp-lifetime-069338.pdf" target="_blank" class="link-pill">Oracle Linux OS EOL</a>
+                        <a href="https://yum.oracle.com/oracle-linux-isos.html" target="_blank" class="link-pill">Oracle Linux OS Release</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>Red Hat Linux</h4>
+                        <a href="https://access.redhat.com/support/policy/updates/errata#Life_Cycle_Dates" target="_blank" class="link-pill">Red Hat Enterprise Linux Release Information</a>
+                        <a href="https://access.redhat.com/articles/3078#RHEL8" target="_blank" class="link-pill">Red Hat Enterprise Linux Minor Version Release</a>
+                        <a href="https://access.redhat.com/support/policy/updates/errata" target="_blank" class="link-pill">Red Hat Enterprise Linux Update Errata</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>SolarisOS</h4>
+                        <a href="https://www.oracle.com/us/support/library/lifetime-support-hardware-301321.pdf" target="_blank" class="link-pill">Oracle Support Lifecycle and OS Releases</a>
+                        <a href="https://www.oracle.com/solaris/technologies/solaris-10-containers-faqs.html" target="_blank" class="link-pill">Solaris 10 Containers FAQ</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>Ubuntu Flavours</h4>
+                        <a href="https://ubuntu.com/download/flavours" target="_blank" class="link-pill">Ubuntu Recognised Flavours</a>
+                        <a href="https://kubuntu.org/getkubuntu" target="_blank" class="link-pill">Kubuntu Supported Versions</a>
+                        <a href="https://lubuntu.me/downloads/" target="_blank" class="link-pill">Lubuntu Supported Versions</a>
+                        <a href="https://ubuntubudgie.org/downloads/" target="_blank" class="link-pill">Ubuntu Budgie Releases</a>
+                        <a href="https://www.ubuntukylin.com/downloads/" target="_blank" class="link-pill">Ubuntu Kylin Releases</a>
+                        <a href="https://ubuntustudio.org/category/release-notes/" target="_blank" class="link-pill">Ubuntu Studio Release Notes</a>
+                        <a href="https://xubuntu.org/releases/" target="_blank" class="link-pill">Xubuntu Release Notes</a>
                     </div>
                 </div>
             </div>
 
-            <!-- SOFTWARE SUPPORT -->
             <div class="link-category" data-category="software">
                 <div class="lcat-header" onclick="toggleCategory(this)">
                     <span class="lcat-icon">📦</span>
@@ -330,12 +494,141 @@
                 </div>
                 <div class="lcat-body">
                     <div class="vendor-card">
-                        <h4>Microsoft EOS 2025</h4>
-                        <a href="https://learn.microsoft.com/en-us/lifecycle/end-of-support/end-of-support-2025" target="_blank" class="link-pill">Out of Support in 2025</a>
+                        <h4>Adobe</h4>
+                        <a href="https://helpx.adobe.com/uk/acrobat/release-note/release-notes-acrobat-reader.html" target="_blank" class="link-pill">Acrobat Reader Release Notes</a>
+                        <a href="https://helpx.adobe.com/x-productkb/policy-pricing/policy_enterprise_lifecycle.html" target="_blank" class="link-pill">Adobe Support Lifecycle Policy</a>
+                        <a href="https://helpx.adobe.com/uk/support/programs/eol-matrix.html" target="_blank" class="link-pill">Adobe Products and technical support periods</a>
                     </div>
                     <div class="vendor-card">
-                        <h4>Microsoft EOS 2026</h4>
+                        <h4>Apache</h4>
+                        <a href="https://openoffice.apache.org/" target="_blank" class="link-pill">Apache OpenOffice Release Notes</a>
+                        <a href="https://www.openoffice.org/development/releases/eol.html" target="_blank" class="link-pill">OpenOffice EOL Announcement</a>
+                        <a href="https://tomcat.apache.org/whichversion.html" target="_blank" class="link-pill">Apache Tomcat Versions</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>Apple</h4>
+                        <a href="https://support.apple.com/en-gb/100100" target="_blank" class="link-pill">Apple Security Releases</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>Avira</h4>
+                        <a href="https://www.avira.com/en/support-product-lifecycle" target="_blank" class="link-pill">Avira Product Lifecycle</a>
+                        <a href="https://www.avira.com/en/support-product-lifecycle-oem" target="_blank" class="link-pill">Avira OEM Lifecycle</a>
+                        <a href="https://www.avira.com/en/support-product-lifecycle-archive" target="_blank" class="link-pill">Avira Product Lifecycle Archive</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>Bitdefender</h4>
+                        <a href="https://www.bitdefender.com/consumer/support/answer/9048/" target="_blank" class="link-pill">Bitdefender Consumer Product EOL</a>
+                        <a href="https://www.bitdefender.co.uk/support/bitdefender-end-of-life-policy-statement-982.html" target="_blank" class="link-pill">Bitdefender EOL Policy Statement</a>
+                        <a href="https://www.bitdefender.com/consumer/support/answer/32196/" target="_blank" class="link-pill">The latest version of Bitdefender on Windows</a>
+                        <a href="https://www.bitdefender.com/consumer/support/answer/32547/" target="_blank" class="link-pill">Latest version of Bitdefender for Mac</a>
+                        <a href="https://www.bitdefender.co.uk/support/bitdefender-end-of-life-policy-statement-982.html" target="_blank" class="link-pill">Bitdefender EOL Policy Statement</a>
+                        <a href="https://www.bitdefender.com/business/support/en/77212-48453-release-notes.html" target="_blank" class="link-pill">BitDefender Release Notes</a>
+                        <a href="https://www.bitdefender.com/business/support/en/77212-78207-gravityzone-control-center.html" target="_blank" class="link-pill">GravityZone Control Center Release Notes</a>
+
+                    </div>
+                    <div class="vendor-card">
+                        <h4>Check Point</h4>
+                        <a href="https://www.checkpoint.com/support-services/support-life-cycle-policy/" target="_blank" class="link-pill">Check Point Software Support</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>ESET</h4>
+                        <a href="https://support-eol.eset.com/en/" target="_blank" class="link-pill">ESET End of Life Portal</a>
+                        <a href="https://support.eset.com/en/kb3592-is-my-eset-product-supported-eset-end-of-life-policy-business-products" target="_blank" class="link-pill">ESET Support Matrix</a>
+                        <a href="https://support-eol.eset.com/en/affected.html" target="_blank" class="link-pill">ESET End of Life Lookup Tool</a>
+                        <a href="https://help.eset.com/eset_documents/eol/End_of_Life_Policy-Business.pdf" target="_blank" class="link-pill">ESET EOL Policy</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>F-Secure</h4>
+                        <a href="https://www.f-secure.com/en/partners/operators/product-lifecycle" target="_blank" class="link-pill">Product Lifecycle</a>
+                        <a href="https://www.kb.f-secure.com/s/topic/0TOTs0000001LyTOAU/release-notes?language=en_US" target="_blank" class="link-pill">Product Release Notes</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>Google</h4>
+                        <a href="https://chromereleases.googleblog.com/search/label/Desktop%20Update" target="_blank" class="link-pill">Chrome Releases - Desktop (Windows, Mac, Linux)</a>
+                        <a href="https://chromereleases.googleblog.com/search/label/Extended%20Stable%20updates" target="_blank" class="link-pill">Chrome Releases - Extended Stable Channel Desktop</a>
+                        <a href="https://support.google.com/a/answer/7577057" target="_blank" class="link-pill">Google Drive for desktop release notes</a>
+                        <a href="https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/process/release_cycle.md" target="_blank" class="link-pill">Chrome Release Cycle Information</a>
+                        <a href="https://chromiumdash.appspot.com/schedule" target="_blank" class="link-pill">Chromium Dashboard Release Cycle</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>Kaspersky</h4>
+                        <a href="https://support.kaspersky.com/corporate/lifecycle" target="_blank" class="link-pill">Kaspersky Support Lifecycle</a>
+                        <a href="https://support.kaspersky.co.uk/support/rules" target="_blank" class="link-pill">Support Rules</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>LibreOffice</h4>
+                        <a href="https://www.libreoffice.org/download/release-notes/" target="_blank" class="link-pill">LibreOffice Release Notes</a>
+                        <a href="https://wiki.documentfoundation.org/ReleasePlan" target="_blank" class="link-pill">The Document Foundation - Release Cycle</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>Kubernetes</h4>
+                        <a href="https://kubernetes.io/releases/" target="_blank" class="link-pill">Kubernetes Releases</a>
+                        <a href="https://kubernetes.io/releases/patch-releases/" target="_blank" class="link-pill">Kubernetes Patch Release Notes</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>Malwarebytes</h4>
+                        <a href="https://support.malwarebytes.com/hc/en-us/articles/360039022993" target="_blank" class="link-pill">Malwarebytes Product Lifecycle Policy</a>
+                        <a href="https://support.malwarebytes.com/hc/en-us/sections/360005863113-Release-History-News" target="_blank" class="link-pill">Release History & News (Windows)</a>
+                        <a href="https://support.malwarebytes.com/hc/en-us/sections/360005863193-Release-History-News" target="_blank" class="link-pill">Release History & News (Mac)</a>
+                        <a href="https://support.threatdown.com/hc/en-us/articles/4413789311379-Endpoint-Protection-Product-Lifecycle" target="_blank" class="link-pill">Malwarebytes Endpoint Protection Product Lifecycle</a>
+                        <a href="https://support.threatdown.com/hc/en-us/articles/4413817111571-Malwarebytes-Enterprise-Edition-Product-Lifecycle" target="_blank" class="link-pill">Malwarebytes Enterprise Edition Product Lifecycle</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>Microsoft</h4>
+                        <a href="https://docs.microsoft.com/en-us/lifecycle/products/export" target="_blank" class="link-pill">Lifecycle Data Export</a>
+                        <a href="https://docs.microsoft.com/en-gb/lifecycle/products/" target="_blank" class="link-pill">Search Product and Services Lifecycle Information</a>
+                        <a href="https://learn.microsoft.com/en-us/lifecycle/end-of-support/end-of-support-2025" target="_blank" class="link-pill">Ending Support in 2025</a>
+                        <a href="https://learn.microsoft.com/en-us/lifecycle/office-windows-configuration-matrix" target="_blank" class="link-pill">Microsoft Office and Windows Configuration Support</a>
+                        <a href="https://docs.microsoft.com/en-us/officeupdates/release-notes-office-for-mac" target="_blank" class="link-pill">Release Notes for Office for Mac</a>
+                        <a href="https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint" target="_blank" class="link-pill">Microsoft Defender for Endpoint Documentation</a>
+                        <a href="https://www.microsoft.com/en-us/wdsi/definitions/antimalware-definition-release-notes" target="_blank" class="link-pill">Microsoft Security Intelligence Definition Release Notes</a>
+                        <a href="https://www.microsoft.com/en-us/wdsi/defenderupdates" target="_blank" class="link-pill">Latest Security Update for Microsoft Defender</a>
+                        <a href="https://docs.microsoft.com/en-gb/lifecycle/products/microsoft-net-and-net-core?branch=live" target="_blank" class="link-pill">Microsoft .NET and .NET Core Lifecycle</a>
+                        <a href="https://docs.microsoft.com/en-us/deployedge/microsoft-edge-relnote-stable-channel" target="_blank" class="link-pill">Microsoft Edge Release Notes</a>
+                        <a href="https://docs.microsoft.com/en-gb/deployedge/microsoft-edge-supported-operating-systems" target="_blank" class="link-pill">Microsoft Edge Supported Operating Systems</a>
+                        <a href="https://docs.microsoft.com/en-us/exchange/new-features/build-numbers-and-release-dates?view=exchserver-2019" target="_blank" class="link-pill">Exchange Server Build Numbers & Release Notes</a>
+                        <a href="https://support.microsoft.com/en-gb/office/onedrive-release-notes-845dcf18-f921-435e-bf28-4e24b95e5fc0#ID0EACAAA=Windows" target="_blank" class="link-pill">OneDrive Release Notes</a>
+                        <a href="https://learn.microsoft.com/en-us/lifecycle/faq/extended-security-updates" target="_blank" class="link-pill">Microsoft Extended Security Updates</a>
+                        <a href="https://docs.microsoft.com/en-gb/lifecycle/products/?products=vs" target="_blank" class="link-pill">Visual Studio Lifecycle</a>
                         <a href="https://learn.microsoft.com/en-us/lifecycle/end-of-support/end-of-support-2026" target="_blank" class="link-pill">Out of Support in 2026</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>Mozilla Inc</h4>
+                        <a href="https://www.mozilla.org/en-US/firefox/releases/" target="_blank" class="link-pill">Firefox Release Notes</a>
+                        <a href="https://support.mozilla.org/en-US/kb/where-find-release-notes-firefox-enterprise" target="_blank" class="link-pill">Firefox ESR & Enterprise Release Notes</a>
+                        <a href="https://www.thunderbird.net/en-GB/thunderbird/releases/" target="_blank" class="link-pill">Thunderbird Release Notes</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>Oracle</h4>
+                        <a href="https://www.oracle.com/java/technologies/java-se-support-roadmap.html" target="_blank" class="link-pill">Oracle Java SE Support Matrix</a>
+                        <a href="https://www.oracle.com/java/technologies/javase/jdk-relnotes-index.html" target="_blank" class="link-pill">Java Release Notes</a>
+                        <a href="https://dev.mysql.com/doc/relnotes/mysql/8.0/en/" target="_blank" class="link-pill">MySQL 8.0 Release Notes</a>
+                        <a href="https://docs.oracle.com/en-us/iaas/releasenotes/services/mysql-database/" target="_blank" class="link-pill">MySQL Release Notes</a>
+                        <a href="https://dev.mysql.com/doc/relnotes/mysql/8.0/en/" target="_blank" class="link-pill">MySQL Release Notes Documentation</a>
+                        <a href="https://www.oracle.com/us/support/library/lifetime-support-technology-069183.pdf" target="_blank" class="link-pill">Oracle Lifetime Support Policy and Release Notes</a>
+                        <a href="https://docs.oracle.com/en-us/iaas/releasenotes/" target="_blank" class="link-pill">Oracle Cloud Infrastructure Release Notes</a>
+                        <a href="https://www.oracle.com/uk/support/policies.html" target="_blank" class="link-pill">Oracle Technical Support Policies</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>Sophos</h4>
+                        <a href="https://docs.sophos.com/releasenotes/index.html" target="_blank" class="link-pill">Sophos Release Notes</a>
+                        <a href="https://support.sophos.com/support/s/article/KBA-000002885?language=en_US" target="_blank" class="link-pill">Retired Sophos Products</a>
+                        <a href="https://support.sophos.com/support/s/article/KB-000034756?language=en_US" target="_blank" class="link-pill">Supported Platforms Retirement Calendar</a>
+                        <a href="https://docs.sophos.com/releasenotes/output/en-us/releaseinfo/SAVReleaseVersions.html" target="_blank" class="link-pill">Sophos AV Version Release Dates</a>
+                        <a href="https://support.sophos.com/support/s/article/KB-000034795?language=en_US" target="_blank" class="link-pill">Retirement Calendar for Sophos Endpoint & Server Products, Management Consoles and PureMessage</a>
+                        <a href="https://support.sophos.com/support/s/article/KB-000038961?language=en_US" target="_blank" class="link-pill">Sophos Email Appliance Retirement Schedule</a>
+                        <a href="https://support.home.sophos.com/hc/en-us/sections/360000192343-Release-Notes" target="_blank" class="link-pill">Sophos Home Releases</a>
+                        <a href="https://support.sophos.com/support/s/article/KB-000034764?language=en_US" target="_blank" class="link-pill">Sophos Pure Message Retirement Calendar</a>
+                        <a href="https://support.sophos.com/support/s/article/KB-000038888?language=en_US" target="_blank" class="link-pill">PureMessage for UNIX Retirement Schedule</a>
+                        <a href="https://support.sophos.com/support/s/article/KB-000034767?language=en_US" target="_blank" class="link-pill">Safeguard Retirement Calendar</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>WatchGuard</h4>
+                        <a href="https://www.watchguard.com/uk/wgrd-resource-center/end-of-life-policy" target="_blank" class="link-pill">WatchGuard End of Life Policy</a>
+                    </div>
+                    <div class="vendor-card">
+                        <h4>Webroot</h4>
+                        <a href="https://www.webroot.com/gb/en/support/support-consumer-release-notes" target="_blank" class="link-pill">SecureAnywhere Release Notes | Webroot</a>
                     </div>
                     <div class="vendor-card">
                         <h4>Node.js</h4>
