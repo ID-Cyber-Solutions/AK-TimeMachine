@@ -1,8 +1,44 @@
 /* ══════════════════════════════════════════════
    VERSION TIME MACHINE — App Logic
-   Handles: SPA navigation, version rendering,
-            link category toggling, vendor filtering
 ══════════════════════════════════════════════ */
+
+/* ── THEME TOGGLE ───────────────────────────── */
+const Theme = (() => {
+    const html   = document.documentElement;
+    const btn    = document.getElementById('themeToggle');
+    const KEY    = 'vtm-theme';
+
+    const ICONS  = { dark: '☀️', light: '🌙' };
+    const LABELS = { dark: 'Switch to light mode', light: 'Switch to dark mode' };
+
+    function apply(mode) {
+        html.classList.toggle('light', mode === 'light');
+        btn.textContent = ICONS[mode];
+        btn.setAttribute('aria-label', LABELS[mode]);
+        btn.title = LABELS[mode];
+        localStorage.setItem(KEY, mode);
+    }
+
+    function toggle() {
+        apply(html.classList.contains('light') ? 'dark' : 'light');
+    }
+
+    // Init: respect saved preference, then OS preference
+    function init() {
+        const saved = localStorage.getItem(KEY);
+        if (saved) {
+            apply(saved);
+        } else if (window.matchMedia?.('(prefers-color-scheme: light)').matches) {
+            apply('light');
+        } else {
+            apply('dark'); // explicit call so icon is set correctly
+        }
+    }
+
+    btn.addEventListener('click', toggle);
+    return { init };
+})();
+
 
 /* ── SPA NAVIGATION ─────────────────────────── */
 const App = (() => {
@@ -10,21 +46,18 @@ const App = (() => {
     const navTabs = document.querySelectorAll('.nav-tab');
 
     function show(viewId) {
-        views.forEach(v => v.classList.toggle('active', v.id === `view-${viewId}`));
+        views.forEach(v   => v.classList.toggle('active', v.id === `view-${viewId}`));
         navTabs.forEach(t => t.classList.toggle('active', t.dataset.view === viewId));
     }
 
-    navTabs.forEach(tab => {
-        tab.addEventListener('click', () => show(tab.dataset.view));
-    });
-
+    navTabs.forEach(tab => tab.addEventListener('click', () => show(tab.dataset.view)));
     return { show };
 })();
 
 window.showView = App.show;
 
 
-/* ── SECTION TOGGLE (version results) ───────── */
+/* ── SECTION TOGGLE ─────────────────────────── */
 function toggleSection(header) {
     const body = header.nextElementSibling;
     header.classList.toggle('open');
@@ -39,32 +72,17 @@ function toggleCategory(header) {
     body.classList.toggle('open');
 }
 
-// Open all categories by default on load
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.lcat-header').forEach(h => {
-        h.classList.add('open');
-        h.nextElementSibling.classList.add('open');
-    });
-});
 
-
-/* ── VENDOR LINK SEARCH FILTER ───────────────── */
+/* ── VENDOR LINK FILTER ──────────────────────── */
 function filterLinks(query) {
     const q = query.trim().toLowerCase();
-    const categories = document.querySelectorAll('.link-category');
-
-    categories.forEach(cat => {
-        const vendors = cat.querySelectorAll('.vendor-card');
+    document.querySelectorAll('.link-category').forEach(cat => {
         let visible = 0;
-
-        vendors.forEach(v => {
-            const text = v.textContent.toLowerCase();
-            const match = !q || text.includes(q);
+        cat.querySelectorAll('.vendor-card').forEach(v => {
+            const match = !q || v.textContent.toLowerCase().includes(q);
             v.classList.toggle('hidden', !match);
             if (match) visible++;
         });
-
-        // Hide whole category if nothing matches
         cat.classList.toggle('hidden', visible === 0 && q.length > 0);
     });
 }
@@ -72,10 +90,10 @@ function filterLinks(query) {
 
 /* ── GROUP ICONS ─────────────────────────────── */
 const GROUP_ICONS = {
-    browsers: '🌐',
-    macos:    '🍎',
+    browsers: '🌏',
+    macos:    '💻',
     ios:      '📱',
-    ipados:   '🪄',
+    ipados:   '🍎',
     esxi:     '🖥',
     m365:     '📊',
     dotnet:   '⚙️',
@@ -85,11 +103,11 @@ const GROUP_ICONS = {
 /* ── DATE FORMATTER ─────────────────────────── */
 function formatDate(dateStr) {
     if (!dateStr || dateStr === '—') return '—';
-    const d    = new Date(dateStr);
-    const day  = d.getUTCDate();
-    const mn   = ["January","February","March","April","May","June",
-                  "July","August","September","October","November","December"];
-    const sfx  = (n) => {
+    const d   = new Date(dateStr);
+    const day = d.getUTCDate();
+    const mn  = ["January","February","March","April","May","June",
+                 "July","August","September","October","November","December"];
+    const sfx = n => {
         if (n > 3 && n < 21) return 'th';
         return ['th','st','nd','rd','th','th','th','th','th','th'][n % 10] ?? 'th';
     };
@@ -103,17 +121,17 @@ function renderCard(platform, data) {
     const card = document.createElement('div');
     card.className = 'card';
 
-    const isFuture = platform.key.includes('26');
-
     if (safe.v === 'Not released yet') {
         card.innerHTML = `
-            <div class="card-platform">${platform.name}</div>
+            <div class="card-name">${platform.name}</div>
             <div class="card-version-block">
                 <div class="card-version-label">Safe version</div>
                 <div class="not-released">Not released yet</div>
             </div>`;
         return card;
     }
+
+    const isFuture = platform.key.includes('26');
 
     card.innerHTML = `
         <div class="card-name">${platform.name}</div>
@@ -141,17 +159,14 @@ window.checkVersions = function () {
     const container = document.getElementById('results');
     container.innerHTML = '';
 
-    // Result header with chosen date
     const header = document.createElement('div');
     header.className = 'result-header';
     header.innerHTML = `
         <div class="result-date-pill">
-            <span>📅</span>
-            Safe versions as of ${formatDate(input)}
+            <span>📅</span> Safe versions as of ${formatDate(input)}
         </div>`;
     container.appendChild(header);
 
-    // Render each group as an accordion section
     groups.forEach((group, gi) => {
         const section = document.createElement('div');
         section.className = 'section';
@@ -182,7 +197,6 @@ window.checkVersions = function () {
         section.appendChild(sectionBody);
         container.appendChild(section);
 
-        // Auto-open first section
         if (gi === 0) {
             sectionHeader.classList.add('open');
             sectionBody.classList.add('open');
@@ -191,8 +205,16 @@ window.checkVersions = function () {
 };
 
 
-/* ── AUTO-LOAD ON READY ─────────────────────── */
+/* ── INIT ───────────────────────────────────── */
 window.addEventListener('load', () => {
+    Theme.init();
+
+    // Open all link categories
+    document.querySelectorAll('.lcat-header').forEach(h => {
+        h.classList.add('open');
+        h.nextElementSibling.classList.add('open');
+    });
+
     document.getElementById('dateInput').value = '2026-04-01';
     checkVersions();
 });
