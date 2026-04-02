@@ -116,10 +116,14 @@ function formatDate(dateStr) {
 
 
 /* ── RENDER ONE VERSION CARD ─────────────────── */
-function renderCard(platform, data) {
+function renderCard(platform, data, selectedDate) {
     const { safe, fresh, latestDays } = data;
     const card = document.createElement('div');
     card.className = 'card';
+
+    // Check if this platform is EOL as of the selected date
+    const isEol = platform.eol && new Date(selectedDate) >= new Date(platform.eol);
+    if (isEol) card.classList.add('card--eol');
 
     if (safe.v === 'Not released yet') {
         card.innerHTML = `
@@ -132,6 +136,19 @@ function renderCard(platform, data) {
     }
 
     const isFuture = platform.key.includes('26');
+
+    if (isEol) {
+        card.innerHTML = `
+            <div class="card-name">${platform.name}</div>
+            <div class="card-eol-banner">
+                <span class="card-eol-icon">⚠</span>
+                <div>
+                    <div class="card-eol-title">End of Life</div>
+                    <div class="card-eol-date">Support ended ${formatDate(platform.eol)} — no further security patches</div>
+                </div>
+            </div>`;
+        return card;
+    }
 
     card.innerHTML = `
         <div class="card-name">${platform.name}</div>
@@ -174,10 +191,24 @@ window.checkVersions = function () {
 
         const sectionHeader = document.createElement('div');
         sectionHeader.className = 'section-header';
+        const LABELS = {
+            browsers: 'Safe browser versions on',
+            macos:    'Safe macOS versions on',
+            ios:      'Safe iOS versions on',
+            ipados:   'Safe iPadOS versions on',
+            esxi:     'Safe VMware ESXi versions on',
+            m365:     'Safe Microsoft 365 versions on',
+            dotnet:   'Safe .NET versions on',
+        };
+        const dateLabel = LABELS[group.id] ?? 'Safe versions on';
+
         sectionHeader.innerHTML = `
             <div class="section-header-left">
                 <span class="section-icon">${GROUP_ICONS[group.id] ?? '📦'}</span>
-                <span>${group.title}</span>
+                <div class="section-header-text">
+                    <span class="section-title">${group.title}</span>
+                    <span class="section-date-label">${dateLabel} ${formatDate(input)}</span>
+                </div>
                 <span class="section-count">${group.platforms.length}</span>
             </div>
             <span class="section-chevron">▾</span>`;
@@ -188,7 +219,7 @@ window.checkVersions = function () {
 
         group.platforms.forEach((platform, pi) => {
             const data = getSafeLatest(releases[platform.key], input);
-            const card = renderCard(platform, data);
+            const card = renderCard(platform, data, input);
             sectionBody.appendChild(card);
             setTimeout(() => card.classList.add('show'), gi * 60 + pi * 80);
         });

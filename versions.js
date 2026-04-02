@@ -168,6 +168,11 @@ const releases = {
         {v: "13.3 Ventura", d: "2023-03-27"}, {v: "13.2.1 Ventura", d: "2023-02-13"}, {v: "13.2 Ventura", d: "2023-01-23"}, {v: "13.1 Ventura", d: "2022-12-13"},
         {v: "13.0.1 Ventura", d: "2022-11-09"}, {v: "13.0 Ventura", d: "2022-10-24"}
     ],
+    esxi9: [
+    { v: "ESXi 9.0.2.0", d: "2026-01-20" },
+    { v: "ESXi 9.0.1.0", d: "2025-09-29" },
+    { v: "ESXi 9.0",     d: "2025-06-17" }
+    ],
     esxi8: [
         {v: "ESXi 8.0 Update 3i", d: "2026-02-24"},
         {v: "ESXi 8.0g", d: "2026-02-13"},
@@ -312,7 +317,7 @@ const groups = [
         id:"ios", title:"iOS",
         platforms:[
             {key:"ios16", name:"iOS 16"},
-            {key:"ios17", name:"iOS 17 Not in Support Anymore after 24 September 2025"},
+            {key:"ios17", name:"iOS 17", eol:"2025-09-24"},
             {key:"ios18", name:"iOS 18"},
             {key:"ios26", name:"iOS 26"}
         ]
@@ -330,8 +335,9 @@ const groups = [
     {
         id:"esxi", title:"VMware ESXi",
         platforms:[
+            {key:"esxi9", name:"ESXi 9"},
             {key:"esxi8", name:"ESXi 8"},
-            {key:"esxi7", name:"ESXi 7"}
+            {key:"esxi7", name:"ESXi 7", eol:"2025-10-02"}
         ]
     },
     {
@@ -344,7 +350,7 @@ const groups = [
     {
         id:"dotnet", title:".NET",
         platforms:[
-            {key:"dotnet_7_releases", name:".NET 7"},
+            {key:"dotnet_7_releases", name:".NET 7", eol:"2024-05-14"},
             {key:"dotnet_8_releases", name:".NET 8"},
             {key:"dotnet_9_releases", name:".NET 9"},
             {key:"dotnet_10_releases", name:".NET 10"},
