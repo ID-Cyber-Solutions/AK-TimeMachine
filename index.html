@@ -11,119 +11,52 @@
 </head>
 <body>
 
-<!-- ══ NAV ══════════════════════════════════════════════════════════════ -->
 <nav id="nav">
     <div class="nav-inner">
-        <div class="nav-left">
-            <button class="hamburger" id="hamburger" aria-label="Toggle sidebar">
-                <span></span><span></span><span></span>
-            </button>
-            <div class="nav-logo" onclick="window.location.href = 'index.html'">
-                <span class="logo-icon">⏱</span>
-                <span class="logo-text">Version Time Machine</span>
-            </div>
+        <div class="nav-logo" onclick="window.location.href = 'index.html'">
+            <span class="logo-icon">⏱</span>
+            <span>Version Time Machine</span>
         </div>
         <div class="nav-right">
-            <div class="api-status" id="apiStatus">
-                <span class="api-dot"></span>
-                <span class="api-label" id="apiLabel">Connecting…</span>
-            </div>
             <div class="nav-tabs" id="navTabs">
                 <button class="nav-tab active" data-view="home">Time Machine</button>
                 <button class="nav-tab" data-view="links">Release Notes</button>
             </div>
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">🌙</button>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode" title="Toggle theme">
+                ☀️
+            </button>
         </div>
     </div>
 </nav>
 
-<!-- ══ APP SHELL ════════════════════════════════════════════════════════ -->
-<div class="app-shell">
 
-    <!-- ── SIDEBAR ────────────────────────────────────────────────────── -->
-    <aside class="sidebar" id="sidebar">
-        <div class="sidebar-inner">
-
-            <!-- Sidebar header -->
-            <div class="sidebar-header">
-                <div class="sidebar-title">
-                    <span>All Products</span>
-                    <span class="product-count" id="productCount">—</span>
-                </div>
-                <button class="sidebar-refresh" id="sidebarRefresh" title="Refresh all data from EndOfLife.date">
-                    <svg class="refresh-icon" id="refreshIcon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/>
-                        <path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/>
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Search -->
-            <div class="sidebar-search-wrap">
-                <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-                </svg>
-                <input type="text" id="sidebarSearch" class="sidebar-search" placeholder="Filter products…" autocomplete="off" spellcheck="false">
-                <button class="search-clear" id="searchClear" aria-label="Clear search">✕</button>
-            </div>
-
-            <!-- Last updated -->
-            <div class="sidebar-meta" id="sidebarMeta">
-                <span id="lastUpdated">Never updated</span>
-            </div>
-
-            <!-- Product list -->
-            <div class="sidebar-list" id="sidebarList">
-                <div class="sidebar-loading" id="sidebarLoading">
-                    <div class="spinner"></div>
-                    <span>Fetching products…</span>
-                </div>
-            </div>
-
+<div id="view-home" class="view active">
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="orb orb1"></div>
+            <div class="orb orb2"></div>
+            <div class="orb orb3"></div>
         </div>
-    </aside>
-
-    <!-- Sidebar overlay (mobile) -->
-    <div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-    <!-- ── MAIN CONTENT ────────────────────────────────────────────────── -->
-    <main class="main-content">
-
-        <!-- TIME MACHINE VIEW ──────────────────────────────────────────── -->
-        <div id="view-home" class="view active">
-            <section class="hero">
-                <div class="hero-bg">
-                    <div class="orb orb1"></div>
-                    <div class="orb orb2"></div>
-                    <div class="orb orb3"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Version<br><em>Time Machine</em></h1>
+            <p class="hero-sub">Pick any date — instantly see the safest stable version of every major platform that was available then, with a built-in <strong>14-day buffer</strong>.</p>
+            <div class="date-picker-wrap">
+                <div class="date-picker-inner">
+                    <label for="dateInput">Assessment date</label>
+                    <input type="date" id="dateInput" max="2027-01-01">
+                    <button class="btn-primary" onclick="checkVersions()">
+                        <span>Show Versions</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
                 </div>
-                <div class="hero-content">
-                    <h1 class="hero-title">Version<br><em>Time Machine</em></h1>
-                    <p class="hero-sub">Pick any date — instantly see the safest stable version of every major platform, with a built-in <strong>14-day buffer</strong>. Select a product from the sidebar or check all defaults.</p>
-                    <div class="date-picker-wrap">
-                        <div class="date-picker-inner">
-                            <label for="dateInput">Assessment date</label>
-                            <input type="date" id="dateInput" max="2030-01-01">
-                            <button class="btn-primary" onclick="checkVersions()">
-                                <span>Show Versions</span>
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Selected product pill (shows when a sidebar product is active) -->
-                    <div class="active-product-bar" id="activeProductBar" style="display:none">
-                        <span class="active-product-label">Viewing:</span>
-                        <span class="active-product-name" id="activeProductName"></span>
-                        <button class="clear-product-btn" onclick="clearSelectedProduct()" title="Back to default view">✕ Clear</button>
-                    </div>
-                </div>
-            </section>
-
-            <div id="results" class="results-container"></div>
+            </div>
         </div>
+    </section>
 
-    <div id="view-links" class="view">
+    <div id="results" class="results-container"></div>
+</div>
+
+<div id="view-links" class="view">
     <div class="links-view-inner">
         <div class="links-hero">
             <h2>Release Notes & EOL Sources</h2>
@@ -725,23 +658,6 @@
             </div>
 
         </div>
-    </div>
-</div>
-        
-    </main>
-</div><!-- /.app-shell -->
-
-<!-- ══ PRODUCT DETAIL MODAL ══════════════════════════════════════════════ -->
-<div class="modal-backdrop" id="modalBackdrop" style="display:none">
-    <div class="modal" id="productModal">
-        <div class="modal-header">
-            <div>
-                <h2 class="modal-title" id="modalTitle">Product</h2>
-                <div class="modal-meta" id="modalMeta"></div>
-            </div>
-            <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
-        </div>
-        <div class="modal-body" id="modalBody"></div>
     </div>
 </div>
 
