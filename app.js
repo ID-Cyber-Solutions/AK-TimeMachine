@@ -484,3 +484,33 @@ window.addEventListener('load', () => {
     document.getElementById('dateInput').value = today;
     checkVersions();
 });
+/* ── COMPANIES HOUSE CHECK ───────────────────── */
+function doCompaniesHouseCheck() {
+    const input = document.getElementById('chSearchInput');
+    const error = document.getElementById('chError');
+    const query = input.value.trim();
+
+    if (!query) {
+        error.style.display = 'block';
+        input.focus();
+        return;
+    }
+
+    error.style.display = 'none';
+    const url = 'https://find-and-update.company-information.service.gov.uk/search?q=' + encodeURIComponent(query);
+    window.open(url, '_blank');
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    const chInput = document.getElementById('chSearchInput');
+    if (chInput) {
+        chInput.addEventListener('input', function () {
+            if (this.value.trim()) {
+                document.getElementById('chError').style.display = 'none';
+            }
+        });
+        chInput.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') doCompaniesHouseCheck();
+        });
+    }
+});

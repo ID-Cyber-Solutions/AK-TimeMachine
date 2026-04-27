@@ -379,6 +379,60 @@ input[type=date]::-webkit-calendar-picker-indicator:hover { opacity: 1; }
 }
 .btn-primary:active { transform: none; }
 
+/* ── COMPANIES HOUSE CHECK ── */
+.ch-check-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.ch-check-inner {
+    background: var(--surface);
+    border: 1px solid var(--border-hi);
+    border-radius: var(--radius-lg);
+    padding: 8px 8px 8px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 20px 60px var(--hero-shadow);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.ch-check-inner input[type=text] {
+    background: none;
+    border: none;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 400;
+    padding: 6px 0;
+    outline: none;
+    min-width: 280px;
+    flex: 1;
+}
+
+.ch-check-inner input[type=text]::placeholder {
+    color: var(--ink-2);
+}
+
+.btn-ch {
+    background: #dc2626 !important;
+    box-shadow: 0 8px 24px rgba(220, 38, 38, 0.35) !important;
+}
+.btn-ch:hover {
+    box-shadow: 0 12px 32px rgba(220, 38, 38, 0.45) !important;
+}
+
+.ch-error {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #dc2626;
+    margin: 0;
+}
+
 /* ── RESULTS ── */
 .results-container {
     max-width: 1400px;
