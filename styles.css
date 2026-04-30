@@ -426,6 +426,20 @@ input[type=date]::-webkit-calendar-picker-indicator:hover { opacity: 1; }
     box-shadow: 0 12px 32px rgba(220, 38, 38, 0.45) !important;
 }
 
+.btn-saas {
+    background: #0891b2 !important;
+    box-shadow: 0 8px 24px rgba(8, 145, 178, 0.35) !important;
+}
+.btn-saas:hover {
+    box-shadow: 0 12px 32px rgba(8, 145, 178, 0.45) !important;
+}
+
+.saas-check-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+}
+
 .ch-error {
     font-size: 0.85rem;
     font-weight: 500;

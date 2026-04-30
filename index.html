@@ -82,13 +82,19 @@
             </div>
             <div class="ch-check-wrap">
                 <div class="ch-check-inner">
-                    <input type="text" id="chSearchInput" placeholder="Enter company name, number or officer">
+                    <input type="text" id="chSearchInput" placeholder="Enter company name, number or officer name">
                     <button class="btn-primary btn-ch" onclick="doCompaniesHouseCheck()">
                         <span>Do Companies House Check</span>
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </button>
                 </div>
                 <p id="chError" class="ch-error" style="display:none;">Field empty.</p>
+            </div>
+            <div class="saas-check-wrap">
+                <button class="btn-primary btn-saas" onclick="window.open('https://authcheck.wearekeep.co.uk/compliance', '_blank')">
+                    <span>Does your SaaS support SSO and MFA?</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
             </div>
         </div>
     </section>
